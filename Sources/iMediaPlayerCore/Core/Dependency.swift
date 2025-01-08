@@ -25,3 +25,6 @@ public protocol iMediaPlayerMaybeDependable {
     var dependency: iMediaPlayerDependencyProtocol? { get }
 }
 
+public protocol iMediaPlayerApplication {
+    init(dependency: iMediaPlayerDependencyProtocol)
+}

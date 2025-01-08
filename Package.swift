@@ -9,6 +9,9 @@ let package = Package(
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
+            name: "iMediaPlayer",
+            targets: ["iMediaPlayer"]),
+        .library(
             name: "iMediaPlayerCore",
             targets: ["iMediaPlayerCore"]),
     ],
@@ -17,8 +20,15 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "iMediaPlayerCore"),
+        .target(
+            name: "iMediaPlayer",
+            dependencies: ["iMediaPlayerCore"]
+        ),
         .testTarget(
             name: "iMediaPlayerCoreTests",
             dependencies: ["iMediaPlayerCore"]),
+        .testTarget(
+            name: "iMediaPlayerTests",
+            dependencies: ["iMediaPlayer"]),
     ]
 )
